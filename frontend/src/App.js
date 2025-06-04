@@ -1004,7 +1004,7 @@ function App() {
 
 // Wrapper component to pass category parameter
 const CategoryPageWrapper = () => {
-  const { category } = require('react-router-dom').useParams();
+  const { category } = useParams();
   return <CategoryPage category={category} />;
 };
 
