@@ -309,6 +309,318 @@ const Product3D = ({ productType, color, rotation, scale }) => {
   return getGeometry();
 };
 
+// Promotional Banners Component
+const PromotionalBanners = () => {
+  const banners = [
+    {
+      id: 1,
+      title: "FLASH SALE 50%",
+      subtitle: "Laptop & Smartphone",
+      description: "Giảm giá sốc cho tất cả sản phẩm công nghệ cao cấp",
+      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwyfHx0ZWNofGVufDB8fHx8MTc0OTA1NDAyOHww&ixlib=rb-4.1.0&q=85",
+      gradient: "from-purple-600 to-pink-600",
+      textColor: "text-white"
+    },
+    {
+      id: 2,
+      title: "BLACK FRIDAY",
+      subtitle: "Super Sale",
+      description: "Cơ hội mua sắm tuyệt vời nhất trong năm",
+      image: "https://images.unsplash.com/photo-1607082350899-7e105aa886ae?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxzYWxlfGVufDB8fHx8MTc0OTA1NDAzOHww&ixlib=rb-4.1.0&q=85",
+      gradient: "from-gray-900 to-black",
+      textColor: "text-white"
+    },
+    {
+      id: 3,
+      title: "GIẢM GIÁ ĐẶC BIỆT",
+      subtitle: "Cho thành viên VIP",
+      description: "Ưu đãi độc quyền dành cho khách hàng thân thiết",
+      image: "https://images.unsplash.com/photo-1577538928305-3807c3993047?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwzfHxzYWxlfGVufDB8fHx8MTc0OTA1NDAzOHww&ixlib=rb-4.1.0&q=85",
+      gradient: "from-red-600 to-orange-500",
+      textColor: "text-white"
+    }
+  ];
+
+  return (
+    <section className="py-20">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Khuyến mãi đặc biệt
+          </h2>
+          <p className="text-xl text-gray-600">
+            Đừng bỏ lỡ cơ hội tiết kiệm lớn cho sản phẩm công nghệ yêu thích
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {banners.map((banner, index) => (
+            <div
+              key={banner.id}
+              className={`relative rounded-3xl overflow-hidden shadow-2xl group cursor-pointer transform hover:scale-105 transition-all duration-500 ${
+                index === 0 ? 'lg:col-span-2 lg:row-span-2' : ''
+              }`}
+              style={{ minHeight: index === 0 ? '400px' : '300px' }}
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <img
+                  src={banner.image}
+                  alt={banner.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-r ${banner.gradient} opacity-75 group-hover:opacity-60 transition-opacity duration-300`}></div>
+              </div>
+
+              {/* Content */}
+              <div className={`relative h-full flex flex-col justify-center p-8 ${banner.textColor}`}>
+                <div className="mb-4">
+                  <span className="bg-white bg-opacity-20 text-white px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm">
+                    🔥 HOT DEAL
+                  </span>
+                </div>
+                <h3 className={`font-bold mb-2 ${index === 0 ? 'text-4xl' : 'text-2xl'}`}>
+                  {banner.title}
+                </h3>
+                <p className={`font-semibold mb-4 ${index === 0 ? 'text-2xl' : 'text-lg'} opacity-90`}>
+                  {banner.subtitle}
+                </p>
+                <p className={`mb-6 opacity-80 ${index === 0 ? 'text-lg' : 'text-base'}`}>
+                  {banner.description}
+                </p>
+                <button className="bg-white text-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition self-start">
+                  Khám phá ngay →
+                </button>
+              </div>
+
+              {/* Animated elements */}
+              <div className="absolute top-4 right-4 animate-pulse">
+                <div className="w-4 h-4 bg-red-500 rounded-full"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Product Showcase Posters Component
+const ProductPosters = () => {
+  const posters = [
+    {
+      id: 1,
+      category: "Laptop",
+      title: "MacBook Pro M3",
+      description: "Sức mạnh vô tận cho công việc sáng tạo",
+      price: "29.999.000₫",
+      originalPrice: "35.999.000₫",
+      discount: "17%",
+      image: "https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg",
+      features: ["Chip M3 Pro", "16GB RAM", "512GB SSD", "14-inch Retina"],
+      color: "from-blue-600 to-purple-700"
+    },
+    {
+      id: 2,
+      category: "Audio",
+      title: "Premium Headphones",
+      description: "Trải nghiệm âm thanh đỉnh cao",
+      price: "5.999.000₫",
+      originalPrice: "7.999.000₫",
+      discount: "25%",
+      image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxlbGVjdHJvbmljc3xlbnwwfHx8fDE3NDkwNTQwMzR8MA&ixlib=rb-4.1.0&q=85",
+      features: ["Noise Cancelling", "Wireless", "30h Battery", "Premium Sound"],
+      color: "from-gray-800 to-gray-900"
+    }
+  ];
+
+  return (
+    <section className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Sản phẩm nổi bật
+          </h2>
+          <p className="text-xl text-gray-600">
+            Những sản phẩm được tin dùng nhất với công nghệ 3D
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {posters.map((poster) => (
+            <div
+              key={poster.id}
+              className="relative bg-white rounded-3xl shadow-2xl overflow-hidden group cursor-pointer transform hover:scale-105 transition-all duration-500"
+            >
+              {/* Background */}
+              <div className="relative h-80 overflow-hidden">
+                <img
+                  src={poster.image}
+                  alt={poster.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-t ${poster.color} opacity-80`}></div>
+                
+                {/* Discount Badge */}
+                <div className="absolute top-6 left-6">
+                  <div className="bg-red-500 text-white px-4 py-2 rounded-full font-bold text-lg">
+                    -{poster.discount}
+                  </div>
+                </div>
+
+                {/* Category Badge */}
+                <div className="absolute top-6 right-6">
+                  <div className="bg-white bg-opacity-20 text-white px-4 py-2 rounded-full font-semibold backdrop-blur-sm">
+                    {poster.category}
+                  </div>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-8">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  {poster.title}
+                </h3>
+                <p className="text-gray-600 text-lg mb-6">
+                  {poster.description}
+                </p>
+
+                {/* Features */}
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {poster.features.map((feature, index) => (
+                    <div key={index} className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                      <span className="text-gray-700 text-sm">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Pricing */}
+                <div className="flex justify-between items-center mb-6">
+                  <div>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-3xl font-bold text-orange-500">
+                        {poster.price}
+                      </span>
+                      <span className="text-lg text-gray-400 line-through">
+                        {poster.originalPrice}
+                      </span>
+                    </div>
+                    <p className="text-green-600 font-semibold">
+                      Tiết kiệm {((parseInt(poster.originalPrice.replace(/[^\d]/g, '')) - parseInt(poster.price.replace(/[^\d]/g, ''))) / 1000).toLocaleString('vi-VN')}k
+                    </p>
+                  </div>
+                </div>
+
+                {/* Actions */}
+                <div className="flex space-x-4">
+                  <button className="flex-1 bg-orange-500 text-white py-4 rounded-xl font-semibold text-lg hover:bg-orange-600 transition">
+                    Mua ngay
+                  </button>
+                  <button className="flex-1 border-2 border-orange-500 text-orange-500 py-4 rounded-xl font-semibold text-lg hover:bg-orange-500 hover:text-white transition">
+                    Xem 3D
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Trending Categories Banner
+const TrendingCategoriesBanner = () => {
+  const categories = [
+    {
+      name: "Laptop Gaming",
+      count: "50+ sản phẩm",
+      trending: "+25% tuần này",
+      icon: "🎮",
+      color: "from-green-500 to-emerald-600",
+      image: "https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg"
+    },
+    {
+      name: "Smartphone 5G",
+      count: "80+ sản phẩm", 
+      trending: "+40% tuần này",
+      icon: "📱",
+      color: "from-blue-500 to-cyan-600",
+      image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxlbGVjdHJvbmljc3xlbnwwfHx8fDE3NDkwNTQwMzR8MA&ixlib=rb-4.1.0&q=85"
+    },
+    {
+      name: "Audio Premium",
+      count: "30+ sản phẩm",
+      trending: "+15% tuần này", 
+      icon: "🎧",
+      color: "from-purple-500 to-pink-600",
+      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwyfHx0ZWNofGVufDB8fHx8MTc0OTA1NDAyOHww&ixlib=rb-4.1.0&q=85"
+    }
+  ];
+
+  return (
+    <section className="py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <span className="bg-gradient-to-r from-orange-400 to-pink-400 text-white px-6 py-3 rounded-full font-semibold text-lg">
+            🔥 TRENDING NOW
+          </span>
+          <h2 className="text-4xl font-bold text-white mt-6 mb-4">
+            Danh mục thịnh hành
+          </h2>
+          <p className="text-xl text-gray-300">
+            Những sản phẩm được tìm kiếm nhiều nhất tuần này
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {categories.map((category, index) => (
+            <div
+              key={index}
+              className="relative group cursor-pointer transform hover:scale-105 transition-all duration-500"
+            >
+              <div className="relative h-64 rounded-2xl overflow-hidden">
+                <img
+                  src={category.image}
+                  alt={category.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-t ${category.color} opacity-85`}></div>
+                
+                {/* Content */}
+                <div className="absolute inset-0 p-6 flex flex-col justify-between text-white">
+                  <div className="flex justify-between items-start">
+                    <div className="text-4xl">{category.icon}</div>
+                    <div className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm backdrop-blur-sm">
+                      Trending
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-2xl font-bold mb-2">{category.name}</h3>
+                    <p className="opacity-90 mb-1">{category.count}</p>
+                    <p className="text-yellow-300 font-semibold text-sm">
+                      📈 {category.trending}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center mt-12">
+          <button className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-12 py-4 rounded-xl text-xl font-semibold hover:from-orange-600 hover:to-red-600 transition shadow-2xl">
+            Khám phá tất cả danh mục →
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // Homepage Component
 const Homepage = () => {
   const [selectedProduct, setSelectedProduct] = useState('laptop');
@@ -422,6 +734,9 @@ const Homepage = () => {
         </div>
       </section>
 
+      {/* Promotional Banners */}
+      <PromotionalBanners />
+
       {/* Categories Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
@@ -450,6 +765,12 @@ const Homepage = () => {
           </div>
         </div>
       </section>
+
+      {/* Product Posters */}
+      <ProductPosters />
+
+      {/* Trending Categories Banner */}
+      <TrendingCategoriesBanner />
 
       {/* Featured Products */}
       <section className="py-20 bg-white">
@@ -499,42 +820,6 @@ const Homepage = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Promotion Banner */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-pink-600">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="bg-white rounded-3xl p-12 text-center shadow-2xl">
-            <div className="mb-8">
-              <span className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full text-lg font-semibold">
-                🔥 KHUYẾN MÃI ĐẶC BIỆT
-              </span>
-            </div>
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">
-              Giảm giá lên đến <span className="text-orange-500">50%</span>
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Cho tất cả sản phẩm công nghệ. Trải nghiệm 3D miễn phí!
-            </p>
-            <div className="flex justify-center items-center space-x-8 mb-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-orange-500">24</div>
-                <div className="text-gray-600">Giờ</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-orange-500">15</div>
-                <div className="text-gray-600">Phút</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-orange-500">30</div>
-                <div className="text-gray-600">Giây</div>
-              </div>
-            </div>
-            <button className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-12 py-4 rounded-xl text-xl font-semibold hover:from-orange-600 hover:to-red-600 transition shadow-lg">
-              Mua ngay - Tiết kiệm 50%
-            </button>
           </div>
         </div>
       </section>
