@@ -155,9 +155,7 @@ metadata:
   run_ui: false
 
 test_plan:
-  current_focus:
-    - "3D Product Showcase API"
-    - "3D Product Showcase UI"
+  current_focus: []
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
